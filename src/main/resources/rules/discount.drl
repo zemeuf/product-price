@@ -1,0 +1,10 @@
+import dev.decision.productprice.ShoppingCartItem
+
+dialect "mvel"
+
+rule "Age based discount"
+    when
+        $sci:ShoppingCartItem(quantity < 11 || quantity > 0)
+    then
+        $sci.setDiscount(10D);
+end
