@@ -11,11 +11,11 @@ public class DiscountService {
   @Autowired
   private KieContainer kieContainer;
 
-  public ShoppingCartItem getDiscount(UUID productId, int quantity) {
+  @Autowired ProductRepository productRepository;
+
+  public ShoppingCartItem getDiscount(UUID productId, Integer quantity) {
     ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
-    Product product = new Product();
-    product.setPrice(50D);
-    product.setProductId(productId);
+    Product product = productRepository.findProductByProductId(productId);
     shoppingCartItem.setProduct(product);
     shoppingCartItem.setQuantity(quantity);
     KieSession kieSession = kieContainer.newKieSession();
