@@ -22,6 +22,7 @@ public class DiscountService {
     kieSession.insert(shoppingCartItem);
     kieSession.fireAllRules();
     kieSession.dispose();
+    shoppingCartItem.setFinalPrice(shoppingCartItem.getProduct().getPrice()-shoppingCartItem.getDiscount());
     return shoppingCartItem;
   }
 }

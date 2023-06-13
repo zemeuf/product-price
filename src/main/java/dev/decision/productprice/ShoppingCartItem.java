@@ -6,6 +6,8 @@ public class ShoppingCartItem {
   private int quantity;
   private Double discount;
 
+  private Double finalPrice;
+
   public Product getProduct() {
     return product;
   }
@@ -28,5 +30,13 @@ public class ShoppingCartItem {
 
   public void setDiscount(Double discount) {
     this.discount = discount;
+  }
+
+  public Double getFinalPrice() {
+    return finalPrice;
+  }
+
+  public void setFinalPrice(Double finalPrice) {
+    this.finalPrice = finalPrice;
   }
 }
