@@ -1,10 +1,46 @@
 import dev.decision.productprice.ShoppingCartItem
+import dev.decision.productprice.DiscountType
 
 dialect "mvel"
 
-rule "Age based discount"
+rule "Quantity based discount"
     when
-        $sci:ShoppingCartItem(quantity < 11 || quantity > 0)
+        $sci:ShoppingCartItem(quantity < 11 && quantity > 0 && product.discountType == DiscountType.QUANTITY)
     then
         $sci.setDiscount(10D);
+end
+
+rule "Quantity based discount 1"
+    when
+        $sci:ShoppingCartItem(quantity < 20 && quantity >= 11 && product.discountType == DiscountType.QUANTITY)
+    then
+        $sci.setDiscount(15D);
+end
+
+rule "Quantity based discount 2"
+    when
+        $sci:ShoppingCartItem(quantity >= 20 && product.discountType == DiscountType.QUANTITY)
+    then
+        $sci.setDiscount(25D);
+end
+
+rule "Percentage based discount"
+    when
+        $sci:ShoppingCartItem(quantity < 11 && quantity > 0 && product.discountType == DiscountType.PERCENTAGE)
+    then
+        $sci.setDiscount($sci.product.price * 0.1);
+end
+
+rule "Percentage based discount 1"
+    when
+        $sci:ShoppingCartItem(quantity < 20 && quantity >= 11 && product.discountType == DiscountType.PERCENTAGE)
+    then
+        $sci.setDiscount($sci.product.price * 0.15);
+end
+
+rule "Percentage based discount 2"
+    when
+        $sci:ShoppingCartItem(quantity >= 20 && product.discountType == DiscountType.PERCENTAGE)
+    then
+        $sci.setDiscount($sci.product.price * 0.25);
 end
