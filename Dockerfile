@@ -15,7 +15,7 @@ COPY src/ src/
 RUN gradle build --no-daemon
 
 # Stage 2: Create the final image
-FROM openjdk:11-jre-slim
+FROM eclipse-temurin:17-jre-alpine
 
 # Set the working directory
 WORKDIR /app
