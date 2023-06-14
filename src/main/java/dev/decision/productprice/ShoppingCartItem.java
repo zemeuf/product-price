@@ -5,7 +5,6 @@ public class ShoppingCartItem {
   private Product product;
   private int quantity;
   private Double discount;
-
   private Double finalPrice;
 
   public Product getProduct() {
