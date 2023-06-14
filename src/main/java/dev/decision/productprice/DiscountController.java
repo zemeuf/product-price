@@ -15,8 +15,8 @@ public class DiscountController {
   @Autowired
   private DiscountService discountService;
 
-  @GetMapping("/get-discount/{productId}")
-  public ResponseEntity<ShoppingCartItem> getDiscount(@PathVariable("productId") String productId, @RequestParam Integer amount) {
+  @GetMapping("/products/{productId}/final-price")
+  public ResponseEntity<ShoppingCartItem> calculateFinalPrice(@PathVariable("productId") String productId, @RequestParam Integer amount) {
     ShoppingCartItem discount = discountService.getDiscount(UUID.fromString(productId), amount);
     return new ResponseEntity<>(discount, HttpStatus.OK);
   }
