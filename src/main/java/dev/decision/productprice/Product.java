@@ -1,15 +1,14 @@
 package dev.decision.productprice;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
 import java.util.UUID;
 
 @Entity
 public class Product {
 
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private long id;
   private UUID productId;
 
