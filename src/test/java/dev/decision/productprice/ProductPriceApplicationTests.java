@@ -1,13 +1,14 @@
 package dev.decision.productprice;
 
+import static io.restassured.RestAssured.when;
+import static org.hamcrest.Matchers.containsString;
+import static org.hamcrest.Matchers.is;
+
 import io.restassured.RestAssured;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
-
-import static io.restassured.RestAssured.when;
-import static org.hamcrest.Matchers.is;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 class ProductPriceApplicationTests {
@@ -52,5 +53,14 @@ class ProductPriceApplicationTests {
         .then()
         .statusCode(400)
         .body("error", is("Bad Request"));
+  }
+
+  @Test
+  void givenExistingProduct_whenSearchingWithAmount0_thenNoDiscount() {
+    when()
+        .get("/products/68b0a517-ebee-4e75-a514-ccba8f4af4ba/final-price?amount=0")
+        .then()
+        .statusCode(500)
+        .body("message", containsString("amount: must be greater than or equal to 1"));
   }
 }

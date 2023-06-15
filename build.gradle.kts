@@ -26,6 +26,7 @@ dependencies {
 	implementation("org.drools:drools-core:8.39.0.Final")
 	implementation("org.drools:drools-decisiontables:8.39.0.Final")
 	implementation("org.drools:drools-mvel:8.39.0.Final")
+	implementation("org.hibernate.validator:hibernate-validator:8.0.0.Final")
 	developmentOnly("org.springframework.boot:spring-boot-devtools:3.1.0")
 	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.1.0")
 	testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.0")
