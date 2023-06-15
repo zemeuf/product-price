@@ -19,16 +19,16 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	implementation("org.springframework.boot:spring-boot-starter-actuator:3.1.0")
+	implementation("org.springframework.boot:spring-boot-starter-web:3.1.0")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa:3.1.0")
 	implementation("com.h2database:h2:2.1.214")
 	implementation("org.drools:drools-core:8.39.0.Final")
 	implementation("org.drools:drools-decisiontables:8.39.0.Final")
 	implementation("org.drools:drools-mvel:8.39.0.Final")
-	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	developmentOnly("org.springframework.boot:spring-boot-devtools:3.1.0")
+	annotationProcessor("org.springframework.boot:spring-boot-configuration-processor:3.1.0")
+	testImplementation("org.springframework.boot:spring-boot-starter-test:3.1.0")
 	testImplementation("io.rest-assured:rest-assured:5.3.0")
 }
 
