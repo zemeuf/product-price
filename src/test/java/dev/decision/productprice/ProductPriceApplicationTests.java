@@ -56,7 +56,7 @@ class ProductPriceApplicationTests {
   }
 
   @Test
-  void givenExistingProduct_whenSearchingWithAmount0_thenNoDiscount() {
+  void givenExistingProduct_whenSearchingWithAmount0_thenValidationError() {
     when()
         .get("/products/68b0a517-ebee-4e75-a514-ccba8f4af4ba/final-price?amount=0")
         .then()
