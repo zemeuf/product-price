@@ -7,45 +7,45 @@ import java.util.UUID;
 @Entity
 public class Product {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
-    private UUID productId;
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private long id;
+  private UUID productId;
 
-    private Double price;
+  private Double price;
 
-    @Enumerated(EnumType.ORDINAL)
-    private DiscountType discountType;
+  @Enumerated(EnumType.ORDINAL)
+  private DiscountType discountType;
 
-    public UUID getProductId() {
-        return productId;
-    }
+  public UUID getProductId() {
+    return productId;
+  }
 
-    public void setProductId(UUID productId) {
-        this.productId = productId;
-    }
+  public void setProductId(UUID productId) {
+    this.productId = productId;
+  }
 
-    public Double getPrice() {
-        return price;
-    }
+  public Double getPrice() {
+    return price;
+  }
 
-    public void setPrice(Double price) {
-        this.price = price;
-    }
+  public void setPrice(Double price) {
+    this.price = price;
+  }
 
-    public long getId() {
-        return id;
-    }
+  public long getId() {
+    return id;
+  }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+  public void setId(long id) {
+    this.id = id;
+  }
 
-    public DiscountType getDiscountType() {
-        return discountType;
-    }
+  public DiscountType getDiscountType() {
+    return discountType;
+  }
 
-    public void setDiscountType(DiscountType discountType) {
-        this.discountType = discountType;
-    }
+  public void setDiscountType(DiscountType discountType) {
+    this.discountType = discountType;
+  }
 }

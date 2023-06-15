@@ -9,21 +9,25 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class DiscountService {
-    @Autowired
-    ProductRepository productRepository;
-    @Autowired
-    private KieContainer kieContainer;
 
-    public ShoppingCartItem getDiscount(UUID productId, Integer quantity) {
-        ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
-        Product product = productRepository.findProductByProductId(productId).orElseThrow(() -> new ProductNotFoundException("Product not found. ProductID: " + productId));
-        shoppingCartItem.setProduct(product);
-        shoppingCartItem.setQuantity(quantity);
-        KieSession kieSession = kieContainer.newKieSession();
-        kieSession.insert(shoppingCartItem);
-        kieSession.fireAllRules();
-        kieSession.dispose();
-        shoppingCartItem.setFinalPrice(shoppingCartItem.getProduct().getPrice() * shoppingCartItem.getQuantity() - shoppingCartItem.getDiscount());
-        return shoppingCartItem;
-    }
+  @Autowired
+  ProductRepository productRepository;
+  @Autowired
+  private KieContainer kieContainer;
+
+  public ShoppingCartItem getDiscount(UUID productId, Integer quantity) {
+    ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
+    Product product = productRepository.findProductByProductId(productId).orElseThrow(
+        () -> new ProductNotFoundException("Product not found. ProductID: " + productId));
+    shoppingCartItem.setProduct(product);
+    shoppingCartItem.setQuantity(quantity);
+    KieSession kieSession = kieContainer.newKieSession();
+    kieSession.insert(shoppingCartItem);
+    kieSession.fireAllRules();
+    kieSession.dispose();
+    shoppingCartItem.setFinalPrice(
+        shoppingCartItem.getProduct().getPrice() * shoppingCartItem.getQuantity()
+            - shoppingCartItem.getDiscount());
+    return shoppingCartItem;
+  }
 }

@@ -13,18 +13,20 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class DiscountController {
 
-    @Autowired
-    private DiscountService discountService;
+  @Autowired
+  private DiscountService discountService;
 
-    @GetMapping("/products/{productId}/final-price")
-    public ResponseEntity<ShoppingCartItem> calculateFinalPrice(@PathVariable("productId") String productId, @RequestParam Integer amount) {
-        ShoppingCartItem discount = discountService.getDiscount(UUID.fromString(productId), amount);
-        return new ResponseEntity<>(discount, HttpStatus.OK);
-    }
+  @GetMapping("/products/{productId}/final-price")
+  public ResponseEntity<ShoppingCartItem> calculateFinalPrice(
+      @PathVariable("productId") String productId, @RequestParam Integer amount) {
+    ShoppingCartItem discount = discountService.getDiscount(UUID.fromString(productId), amount);
+    return new ResponseEntity<>(discount, HttpStatus.OK);
+  }
 
-    @ExceptionHandler(ProductNotFoundException.class)
-    public ResponseEntity<ApiError> handleProductNotFoundException(ProductNotFoundException exception) {
-        ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, exception.getMessage());
-        return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
-    }
+  @ExceptionHandler(ProductNotFoundException.class)
+  public ResponseEntity<ApiError> handleProductNotFoundException(
+      ProductNotFoundException exception) {
+    ApiError apiError = new ApiError(HttpStatus.NOT_FOUND, exception.getMessage());
+    return new ResponseEntity<>(apiError, new HttpHeaders(), apiError.getStatus());
+  }
 }
