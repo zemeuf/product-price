@@ -16,7 +16,7 @@ public class DiscountService {
 
     public ShoppingCartItem getDiscount(UUID productId, Integer quantity) {
         ShoppingCartItem shoppingCartItem = new ShoppingCartItem();
-        Product product = productRepository.findProductByProductId(productId);
+        Product product = productRepository.findProductByProductId(productId).orElseThrow(() -> new ProductNotFoundException("Product not found. ProductID: " + productId));
         shoppingCartItem.setProduct(product);
         shoppingCartItem.setQuantity(quantity);
         KieSession kieSession = kieContainer.newKieSession();
