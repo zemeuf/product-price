@@ -1,4 +1,4 @@
-package dev.decision.productprice;
+package dev.decision.productprice.model;
 
 import jakarta.persistence.*;
 

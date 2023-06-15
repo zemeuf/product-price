@@ -1,4 +1,4 @@
-package dev.decision.productprice;
+package dev.decision.productprice.config;
 
 import org.kie.api.KieServices;
 import org.kie.api.builder.KieBuilder;

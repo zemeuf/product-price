@@ -1,4 +1,4 @@
-package dev.decision.productprice;
+package dev.decision.productprice.web;
 
 import org.springframework.http.HttpStatus;
 

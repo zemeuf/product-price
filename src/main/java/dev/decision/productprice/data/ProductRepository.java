@@ -1,5 +1,6 @@
-package dev.decision.productprice;
+package dev.decision.productprice.data;
 
+import dev.decision.productprice.model.Product;
 import java.util.Optional;
 import java.util.UUID;
 

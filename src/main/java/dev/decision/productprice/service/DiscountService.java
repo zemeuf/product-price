@@ -1,5 +1,9 @@
-package dev.decision.productprice;
+package dev.decision.productprice.service;
 
+import dev.decision.productprice.model.Product;
+import dev.decision.productprice.exception.ProductNotFoundException;
+import dev.decision.productprice.data.ProductRepository;
+import dev.decision.productprice.model.ShoppingCartItem;
 import java.util.UUID;
 
 import org.kie.api.runtime.KieContainer;
