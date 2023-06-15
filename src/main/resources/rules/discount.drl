@@ -1,5 +1,5 @@
-import dev.decision.productprice.ShoppingCartItem
-import dev.decision.productprice.DiscountType
+import dev.decision.productprice.model.ShoppingCartItem
+import dev.decision.productprice.model.DiscountType
 
 dialect "mvel"
 
