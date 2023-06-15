@@ -28,4 +28,6 @@ Docker is the only dependency, since there is a Dockerfile supporting multi-stag
 ## Possible improvements
 * Introduce logging
 * Add more tests
+  * Move integration tests to a separate folder
+* Build openapi spec and run validation tests with it
 * Adopt a more modular architecture (like hexagonal), to reduce coupling between layers and to be framework-agnostic
